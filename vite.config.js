@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import checker from "vite-plugin-checker";
 import { resolve } from "path";
+import dts from "vite-plugin-dts";
 
 export default defineConfig((ctx) => {
   const IS_PRODUCTION = ctx.mode === "production";
@@ -10,9 +11,9 @@ export default defineConfig((ctx) => {
   return {
     build: {
       lib: {
-        entry: resolve(__dirname, "src/main.ts"),
-        name: "MyLib",
+        entry: resolve(__dirname, "src/index.ts"),
         fileName: "my-lib",
+        formats: ["es"],
       },
     },
     plugins: [
@@ -22,6 +23,7 @@ export default defineConfig((ctx) => {
         },
         lintCommand: 'eslint "./src/**/*.{ts}"',
       }),
+      dts({ rollupTypes: true }),
     ],
     test: {
       environment: "jsdom",
