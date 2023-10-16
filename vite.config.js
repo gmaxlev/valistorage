@@ -12,7 +12,7 @@ export default defineConfig((ctx) => {
     build: {
       lib: {
         entry: resolve(__dirname, "src/index.ts"),
-        fileName: "my-lib",
+        fileName: "index",
         formats: ["es"],
       },
     },

@@ -9,6 +9,11 @@
     "preview": "vite preview",
     "test": "vitest"
   },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "jsdom": "^22.1.0",
     "typescript": "^5.0.2",
