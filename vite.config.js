@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import checker from "vite-plugin-checker";
 import { resolve } from "path";
 import dts from "vite-plugin-dts";
+import { terser } from "rollup-plugin-terser";
 
 export default defineConfig((ctx) => {
   const IS_PRODUCTION = ctx.mode === "production";
@@ -15,6 +16,9 @@ export default defineConfig((ctx) => {
         fileName: "index",
         formats: ["es"],
       },
+      rollupOptions: {
+        plugins: [terser()],
+      }
     },
     plugins: [
       checker({
