@@ -92,7 +92,7 @@ function validateOptions(options: Options) {
   }
 }
 
-export function create<T extends unknown>(options: Options) {
+export function create<Set extends unknown, Get extends  unknown = Set>(options: Options) {
   validateOptions(options);
 
   const {
@@ -122,7 +122,7 @@ export function create<T extends unknown>(options: Options) {
   }
 
   return {
-    get(): T | null {
+    get(): Get | null {
       const raw = api.getItem(key);
 
       // value does not exist
@@ -143,7 +143,7 @@ export function create<T extends unknown>(options: Options) {
           clean();
           return null;
         }
-        return unpacked.value as T;
+        return unpacked.value as Get;
       }
 
       // the version is outdated and there is no migrations
@@ -168,9 +168,9 @@ export function create<T extends unknown>(options: Options) {
 
       save(api, key, version, migration.value, verbose);
 
-      return migration.value as T;
+      return migration.value as Get;
     },
-    set(value: T) {
+    set(value: Set) {
       return save(api, key, version, value, verbose);
     },
     remove() {
