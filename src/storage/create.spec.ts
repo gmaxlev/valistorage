@@ -1,7 +1,7 @@
 import { describe, test, expect, afterEach } from "vitest";
-import { create } from "./storage";
+import { create } from "./create.ts";
 
-describe("storage", () => {
+describe("create", () => {
   afterEach(() => {
     localStorage.clear();
     sessionStorage.clear();
