@@ -1,7 +1,7 @@
 import { type Migration, type Version, type VstorageData } from '../types'
 import { warn, IS_DEV } from '../utils'
 
-const message = `"migrations" should be an array that includs the following objects:
+const message = `"migrations" should be an array that includes the following objects:
 
 Array<{
     version: number;
