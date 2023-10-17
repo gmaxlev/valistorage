@@ -1,1 +1,1 @@
-export { create } from "./storage";
+export { create } from './storage'

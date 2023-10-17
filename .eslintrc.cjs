@@ -17,10 +17,15 @@ module.exports = {
             }
         }
     ],
+    "ignorePatterns": ["!src/**/*.ts", "src/vite-env.d.ts"],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "rules": {
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/explicit-function-return-type": ["error", {
+            allowFunctionsWithoutTypeParameters: true
+        }]
     }
 }

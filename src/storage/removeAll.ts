@@ -1,42 +1,39 @@
-import {DEFAULT_PREFIX} from "../constants.ts";
+import { DEFAULT_PREFIX } from '../constants.ts'
 
 interface Options {
-    type?: "localeStorage" | "sessionStorage";
-    prefix?: string;
+  type?: 'localeStorage' | 'sessionStorage'
+  prefix?: string
 }
 
-function getKeys(storage: Storage, prefix: string) {
+function getKeys (storage: Storage, prefix: string): string[] {
+  const keys: string[] = []
 
-    const keys: string[] = [];
+  for (let i = 0; i < storage.length; i++) {
+    const key = storage.key(i)
 
-    for (let i = 0; i < storage.length; i++){
-
-        const key = storage.key(i)
-
-        if (!key) {
-            continue;
-        }
-
-        if (!key.startsWith(prefix)) {
-            continue;
-        }
-
-       keys.push(key)
+    if (!key) {
+      continue
     }
 
-    return keys
+    if (!key.startsWith(prefix)) {
+      continue
+    }
+
+    keys.push(key)
+  }
+
+  return keys
 }
 
-export function removeAll(options?: Options) {
-    const type = options?.type || 'localeStorage'
-    const prefix = options?.prefix || DEFAULT_PREFIX
+export function removeAll (options?: Options): void {
+  const type = options?.type ?? 'localeStorage'
+  const prefix = options?.prefix ?? DEFAULT_PREFIX
 
-    const storage = type === 'localeStorage' ? window.localStorage : window.sessionStorage;
+  const storage = type === 'localeStorage' ? window.localStorage : window.sessionStorage
 
-    const keys = getKeys(storage, prefix);
+  const keys = getKeys(storage, prefix)
 
-    keys.forEach(key => {
-        storage.removeItem(key)
-    })
-
+  keys.forEach(key => {
+    storage.removeItem(key)
+  })
 }

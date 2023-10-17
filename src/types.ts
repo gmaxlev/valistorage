@@ -1,14 +1,14 @@
-export type Version = number;
+export type Version = number
 
-export type VstorageData = {
-  version: Version;
-  value: unknown;
-};
+export interface VstorageData {
+  version: Version
+  value: unknown
+}
 
-export type Validator = (value: any) => boolean;
+export type Validator = (value: any) => boolean
 
-export type Migration = {
-  version: Version;
-  up: (value: any) => unknown;
-  validate?: Validator;
-};
+export interface Migration {
+  version: Version
+  up: (value: any) => unknown
+  validate?: Validator
+}

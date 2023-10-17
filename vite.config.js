@@ -25,7 +25,9 @@ export default defineConfig((ctx) => {
         typescript: {
           tsconfigPath: tsConfig,
         },
-        lintCommand: 'eslint "./src/**/*.{ts}"',
+        eslint: {
+          lintCommand: 'eslint "./src/**/*.ts"',
+        }
       }),
       dts({ rollupTypes: true }),
     ],

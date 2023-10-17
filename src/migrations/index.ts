@@ -1,1 +1,1 @@
-export { migrate } from "./migrations";
+export { migrate } from './migrations'
