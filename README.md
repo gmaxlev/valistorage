@@ -89,13 +89,11 @@ Imagine that we've decided to add a `color` field to our data structure. Users w
 import { create } from 'vstorage';
 
 interface CatVersion1 {
-    id: number;
     name: string;
     age: number;
 }
 
 interface CatVersion2 {
-    id: number;
     name: string;
     age: number;
     color: string;
@@ -131,13 +129,11 @@ Let's add migrations to our `storage`.
 import { create } from 'vstorage';
 
 interface CatVersion1 {
-    id: number;
     name: string;
     age: number;
 }
 
 interface CatVersion2 {
-    id: number;
     name: string;
     age: number;
     color: string;
@@ -147,7 +143,6 @@ const version1ToVersion2 = {
     version: 1,
     up: (value: CatVersion1): CatVersion2 => {
         return {
-            id: value.id,
             name: value.name,
             age: value.age,
             color: 'grey',
@@ -210,7 +205,6 @@ import * as yup from 'yup';
 // Define data structures
 
 const catSchemaVersion1 = yup.object().shape({
-    id: yup.number().required(),
     name: yup.string().required(),
     age: yup.number().required(),
 });
@@ -218,7 +212,6 @@ const catSchemaVersion1 = yup.object().shape({
 type CateSchemaVersion1 = yup.InferType<typeof catSchemaVersion1>;
 
 const catSchemaVersion2 = yup.object().shape({
-    id: yup.number().required(),
     name: yup.string().required(),
     age: yup.number().required(),
     color: yup.string().required(),
@@ -234,7 +227,6 @@ const version1ToVersion2 = {
     },
     up: (value: CateSchemaVersion1): CateSchemaVersion2 => {
         return {
-            id: value.id,
             name: value.name,
             age: value.age,
             color: 'grey',
