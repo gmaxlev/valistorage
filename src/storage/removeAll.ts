@@ -5,12 +5,6 @@ interface Options {
   prefix?: string
 }
 
-/**
- * Removes all values managed by the library
- *
- * @param storage - storage type (localStorage or sessionStorage)
- * @param prefix - prefix for the keys
- */
 function getKeys (storage: Storage, prefix: string): string[] {
   const keys: string[] = []
 
@@ -31,6 +25,13 @@ function getKeys (storage: Storage, prefix: string): string[] {
   return keys
 }
 
+/**
+ * Removes all values managed by the library
+ *
+ * @param options - Options
+ * @param options.type - storage type (localStorage or sessionStorage)
+ * @param options.prefix - prefix for the keys
+ */
 export function removeAll (options?: Options): void {
   const type = options?.type ?? 'localStorage'
   const prefix = options?.prefix ?? DEFAULT_PREFIX
