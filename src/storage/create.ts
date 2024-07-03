@@ -98,6 +98,19 @@ interface Vstorage <Get, Set> {
   remove: () => void
 }
 
+/**
+ * Creates an instance of vstorage value
+ *
+ * @param options - Options
+ * @param options.key - Key to store value
+ * @param options.version - Version of the value
+ * @param options.migrations - Migrations to migrate value (optional)
+ * @param options.type - Type of storage (optional)
+ * @param options.validate - Validate function (optional)
+ * @param options.prefix - Prefix for the key (optional)
+ * @param options.autoRemove - Remove value if it is invalid (optional)
+ * @param options.verbose - Show warnings (optional)
+ */
 export function create<Set, Get = Set> (options: Options): Vstorage<Get, Set> {
   validateOptions(options)
 

@@ -5,6 +5,12 @@ interface Options {
   prefix?: string
 }
 
+/**
+ * Removes all values managed by the library
+ *
+ * @param storage - storage type (localStorage or sessionStorage)
+ * @param prefix - prefix for the keys
+ */
 function getKeys (storage: Storage, prefix: string): string[] {
   const keys: string[] = []
 
