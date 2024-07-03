@@ -1,1 +1,1 @@
-export { create } from './storage'
+export { create, removeAll } from './storage'
