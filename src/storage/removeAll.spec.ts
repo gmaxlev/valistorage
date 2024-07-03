@@ -35,7 +35,7 @@ describe('removeAll()', () => {
     expect(api.get()).toBe('Foo')
 
     removeAll({
-      type: 'localeStorage'
+      type: 'localStorage'
     })
 
     expect(api.get()).toBe('Foo')

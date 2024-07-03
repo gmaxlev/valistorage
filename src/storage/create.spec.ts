@@ -76,7 +76,7 @@ describe('create', () => {
           validate: Array.isArray,
           prefix: 'custom',
           // @ts-expect-error:  intentionally use the wrong type
-          autoremove: 'true'
+          autoRemove: 'true'
         })
       expect(act8).toThrowError()
 
@@ -88,7 +88,7 @@ describe('create', () => {
           type: 'sessionStorage',
           validate: Array.isArray,
           prefix: 'custom',
-          autoremove: false,
+          autoRemove: false,
           // @ts-expect-error:  intentionally use the wrong type
           verbose: 'false'
         })
@@ -180,7 +180,7 @@ describe('create', () => {
         key: 'user',
         version: 1,
         prefix: '_test_2_',
-        type: 'localeStorage'
+        type: 'localStorage'
       })
 
       storage.set({ foo: 'bar' })
@@ -235,7 +235,7 @@ describe('create', () => {
       expect(sessionStorageValue).toBeNull()
     })
 
-    test('should not remove old data if there is migrations is empty and autoremove is false', () => {
+    test('should not remove old data if there is migrations is empty and autoRemove is false', () => {
       const sessionStorageKey = '_test_user'
 
       const oldValue = {
@@ -256,7 +256,7 @@ describe('create', () => {
         version: 5,
         prefix: '_test_',
         type: 'sessionStorage',
-        autoremove: false,
+        autoRemove: false,
         migrations: []
       })
 
@@ -312,7 +312,7 @@ describe('create', () => {
       expect(sessionStorageValue).toBeNull()
     })
 
-    test('should not remove old data if there is no available migrations and autoremove is false', () => {
+    test('should not remove old data if there is no available migrations and autoRemove is false', () => {
       const sessionStorageKey = '_test_user'
 
       const oldValue = {
@@ -333,8 +333,8 @@ describe('create', () => {
         version: 5,
         prefix: '_test_',
         type: 'sessionStorage',
-        // disable autoremove
-        autoremove: false,
+        // disable autoRemove
+        autoRemove: false,
         migrations: [
           /**
            * There is not migration for the current version (3)
@@ -414,7 +414,7 @@ describe('create', () => {
       expect(sessionStorageValue).toBeNull()
     })
 
-    test('should not remove old data if migration failed and autoremove is false', () => {
+    test('should not remove old data if migration failed and autoRemove is false', () => {
       const sessionStorageKey = '_test_user'
 
       const oldValue = {
@@ -435,7 +435,7 @@ describe('create', () => {
         version: 5,
         prefix: '_test_',
         type: 'sessionStorage',
-        autoremove: false,
+        autoRemove: false,
         migrations: [
           // we have a migration for the current version
           {
@@ -525,7 +525,7 @@ describe('create', () => {
       expect(sessionStorageValue).toBeNull()
     })
 
-    test("should not remove old data if migration's validation failed and autoremove is false", () => {
+    test("should not remove old data if migration's validation failed and autoRemove is false", () => {
       const sessionStorageKey = '_test_user'
 
       const oldValue = {
@@ -546,7 +546,7 @@ describe('create', () => {
         version: 5,
         prefix: '_test_',
         type: 'sessionStorage',
-        autoremove: false,
+        autoRemove: false,
         migrations: [
           {
             // migration is available but we expect another data structure
@@ -656,7 +656,7 @@ describe('create', () => {
       expect(sessionStorageValue).toBeNull()
     })
 
-    test('should not remove old data if migrations is successful but validation failed and autoremove is false', () => {
+    test('should not remove old data if migrations is successful but validation failed and autoRemove is false', () => {
       const sessionStorageKey = '_test_user'
 
       const oldValue = {
@@ -677,7 +677,7 @@ describe('create', () => {
         version: 5,
         prefix: '_test_',
         type: 'sessionStorage',
-        autoremove: false,
+        autoRemove: false,
         validate (value: {
           user: {
             name: string

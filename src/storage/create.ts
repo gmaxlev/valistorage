@@ -34,10 +34,10 @@ interface Options {
   key: string
   version: Version
   migrations?: Migration[]
-  type?: 'localeStorage' | 'sessionStorage'
+  type?: 'localStorage' | 'sessionStorage'
   validate?: (value: any) => boolean
   prefix?: string
-  autoremove?: boolean
+  autoRemove?: boolean
   verbose?: boolean
 }
 
@@ -69,7 +69,7 @@ function validateOptions (options: Options): void {
 
   if (
     'type' in options &&
-    options.type !== 'localeStorage' &&
+    options.type !== 'localStorage' &&
     options.type !== 'sessionStorage'
   ) {
     fail()
@@ -83,7 +83,7 @@ function validateOptions (options: Options): void {
     fail()
   }
 
-  if (options.autoremove && typeof options.autoremove !== 'boolean') {
+  if (options.autoRemove && typeof options.autoRemove !== 'boolean') {
     fail()
   }
 
@@ -105,13 +105,13 @@ export function create<Set, Get = Set> (options: Options): Vstorage<Get, Set> {
     version,
     validate,
     migrations,
-    type = 'localeStorage',
+    type = 'localStorage',
     verbose = true,
-    autoremove = true
+    autoRemove = true
   } = options
 
   const api =
-    type === 'localeStorage' ? window.localStorage : window.sessionStorage
+    type === 'localStorage' ? window.localStorage : window.sessionStorage
 
   const prefix = options.prefix ?? DEFAULT_PREFIX
 
@@ -122,7 +122,7 @@ export function create<Set, Get = Set> (options: Options): Vstorage<Get, Set> {
   }
 
   function clean (): void {
-    if (autoremove) {
+    if (autoRemove) {
       remove()
     }
   }

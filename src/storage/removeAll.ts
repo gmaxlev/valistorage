@@ -1,7 +1,7 @@
 import { DEFAULT_PREFIX } from '../constants.ts'
 
 interface Options {
-  type?: 'localeStorage' | 'sessionStorage'
+  type?: 'localStorage' | 'sessionStorage'
   prefix?: string
 }
 
@@ -26,10 +26,10 @@ function getKeys (storage: Storage, prefix: string): string[] {
 }
 
 export function removeAll (options?: Options): void {
-  const type = options?.type ?? 'localeStorage'
+  const type = options?.type ?? 'localStorage'
   const prefix = options?.prefix ?? DEFAULT_PREFIX
 
-  const storage = type === 'localeStorage' ? window.localStorage : window.sessionStorage
+  const storage = type === 'localStorage' ? window.localStorage : window.sessionStorage
 
   const keys = getKeys(storage, prefix)
 
