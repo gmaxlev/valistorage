@@ -1,7 +1,6 @@
 {
-  "name": "vstorage",
-  "private": true,
-  "version": "0.0.0",
+  "name": "valistorage",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +9,23 @@
     "test:watch": "vitest",
     "test": "vitest --no-watch"
   },
+  "author": "Maksym Levytskyi https://github.com/gmaxlev",
+  "license": "MIT",
+  "description": "A library for efficiently managing data in localStorage and sessionStorage using versioning and migrations.",
+  "keywords": [
+    "localStorage",
+    "sessionStorage",
+    "storage",
+    "data",
+    "versioning",
+    "migrations"
+  ],
+  "homepage": "https://github.com/gmaxlev/valistorage",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmaxlev/valistorage.git"
+  },
+  "bugs": "https://github.com/gmaxlev/valistorage/issues",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [

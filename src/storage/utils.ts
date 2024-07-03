@@ -1,10 +1,10 @@
-import { type VstorageData } from '../types'
+import { type ValistorageData } from '../types'
 import { IS_DEV, warn } from '../utils'
 
-function isVstorageValue (
+function isValistorageValue (
   value: unknown,
   verbose: boolean
-): value is VstorageData {
+): value is ValistorageData {
   const isValid =
     typeof value === 'object' &&
     value !== null &&
@@ -21,10 +21,10 @@ function isVstorageValue (
   return isValid
 }
 
-export function unpack (value: string, verbose: boolean): VstorageData | null {
+export function unpack (value: string, verbose: boolean): ValistorageData | null {
   try {
     const parsed = JSON.parse(value) as unknown
-    if (!isVstorageValue(parsed, verbose)) {
+    if (!isValistorageValue(parsed, verbose)) {
       return null
     }
     return parsed

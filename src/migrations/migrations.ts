@@ -1,4 +1,4 @@
-import { type Migration, type Version, type VstorageData } from '../types'
+import { type Migration, type Version, type ValistorageData } from '../types'
 import { warn, IS_DEV } from '../utils'
 
 const message = `"migrations" should be an array that includes the following objects:
@@ -146,7 +146,7 @@ function execute (migrations: Migration[], current: unknown): { readonly success
 
 export function migrate (
   migrations: unknown,
-  current: VstorageData,
+  current: ValistorageData,
   to: Version
 ): { readonly success: false, readonly value?: undefined } | { readonly success: true, readonly value: unknown } {
   if (!isValidMigrations(migrations)) {

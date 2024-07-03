@@ -1,11 +1,11 @@
-# vstorage
+# valistorage
 
 A library for efficiently managing data in `localStorage` and `sessionStorage` using **versioning** and **migrations**.
 
 # Installation
 
 ```bash
-npm install vstorage
+npm install valistorage
 ```
 
 ## Creating Storage
@@ -16,7 +16,7 @@ TypeScript allows us to describe the structure of the data we want to store usin
 
 
 ```ts
-import { create } from 'vstorage';
+import { create } from 'valistorage';
 
 interface CatVersion1 {
     name: string;
@@ -36,7 +36,7 @@ Let's look at the two required parameters that we passed:
 
 ## Choosing Storage
 
-By default, vstorage uses `localStorage` to store data.
+By default, valistorage uses `localStorage` to store data.
 You can specify the type of storage by providing `type` parameter in `create` function, which accepts either `localStorage` or `sessionStorage`.
 
 ```ts
@@ -86,7 +86,7 @@ catLocalStorage.remove();
 Imagine that we've decided to add a `color` field to our data structure. Users who have already used the application will only have `name` and `age` stored, so the application won't be able to retrieve `color`.
 
 ```ts
-import { create } from 'vstorage';
+import { create } from 'valistorage';
 
 interface CatVersion1 {
     name: string;
@@ -126,7 +126,7 @@ To ensure the best user experience, we can automatically convert their data to a
 Let's add migrations to our `storage`.
 
 ```ts
-import { create } from 'vstorage';
+import { create } from 'valistorage';
 
 interface CatVersion1 {
     name: string;
@@ -199,7 +199,7 @@ For validating data in storage and migrations, `validate` parameter is used.
 Let's add validation to our previous data structure:
 
 ```ts
-import { create } from 'vstorage';
+import { create } from 'valistorage';
 import * as yup from 'yup';
 
 // Define data structures
@@ -251,7 +251,7 @@ export const catLocalStorage = create<CateSchemaVersion2>({
 To remove all values that are stored by the library, use  `removeAll` method.
 
 ```ts
-import { removeAll } from 'vstorage';
+import { removeAll } from 'valistorage';
 
 removeAll();
 ````
@@ -264,7 +264,7 @@ By default, if no migrations are found for the data or if the data fails validat
 You can change this behavior by using the `autoRemove` parameter, which allows old data to be kept until it is converted to the new format or replaced with new data.
 
 ```ts
-import { create } from 'vstorage';
+import { create } from 'valistorage';
 
 export const catLocalStorage = create({
     key: 'cat',

@@ -1,6 +1,6 @@
 export type Version = number
 
-export interface VstorageData {
+export interface ValistorageData {
   version: Version
   value: unknown
 }

@@ -48,7 +48,7 @@ function validateOptions (options: Options): void {
         'You passed invalid options into "create" options. Please see docs.'
       )
     }
-    throw new Error('[vstorage.create] Invalid Options')
+    throw new Error('[valistorage.create] Invalid Options')
   }
 
   if (typeof options !== 'object' || options === null) {
@@ -92,14 +92,14 @@ function validateOptions (options: Options): void {
   }
 }
 
-interface Vstorage <Get, Set> {
+interface Valistorage <Get, Set> {
   get: () => Get | null
   set: (value: Set) => void
   remove: () => void
 }
 
 /**
- * Creates an instance of vstorage value
+ * Creates an instance of valistorage value
  *
  * @param options - Options
  * @param options.key - Key to store value
@@ -111,7 +111,7 @@ interface Vstorage <Get, Set> {
  * @param options.autoRemove - Remove value if it is invalid (optional)
  * @param options.verbose - Show warnings (optional)
  */
-export function create<Set, Get = Set> (options: Options): Vstorage<Get, Set> {
+export function create<Set, Get = Set> (options: Options): Valistorage<Get, Set> {
   validateOptions(options)
 
   const {

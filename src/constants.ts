@@ -1,1 +1,1 @@
-export const DEFAULT_PREFIX = '__vstorage__'
+export const DEFAULT_PREFIX = '__valistorage__'
