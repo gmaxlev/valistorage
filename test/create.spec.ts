@@ -1,5 +1,5 @@
 import { describe, test, expect, afterEach } from 'vitest'
-import { create } from './create.ts'
+import { create } from '../src/storage/create.ts'
 
 describe('create', () => {
   afterEach(() => {

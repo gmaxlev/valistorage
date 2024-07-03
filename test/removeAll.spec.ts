@@ -1,6 +1,6 @@
 import { describe, expect, test, afterEach } from 'vitest'
-import { create } from './create.ts'
-import { removeAll } from './removeAll.ts'
+import { create } from '../src/storage/create.ts'
+import { removeAll } from '../src/storage/removeAll.ts'
 
 describe('removeAll()', () => {
   afterEach(() => {

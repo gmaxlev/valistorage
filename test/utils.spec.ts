@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest'
-import { pack, unpack } from './utils'
+import { pack, unpack } from '../src/storage/utils.ts'
 
 describe('utils', () => {
   describe('unpack', () => {

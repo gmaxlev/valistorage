@@ -5,8 +5,8 @@ import {
   normalize,
   isValidMigration,
   migrate
-} from './migrations'
-import { type Migration } from '../types'
+} from '../src/migrations/migrations.ts'
+import { type Migration } from '../src/types.ts'
 
 describe('migations', () => {
   describe('normalize()', () => {
