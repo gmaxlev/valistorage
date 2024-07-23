@@ -1,5 +1,7 @@
 # valistorage
 
+![CLI watch mode example](./docs/logo.svg)
+
 A library for efficiently managing data in `localStorage` and `sessionStorage` using **versioning** and **migrations**.
 
 # Installation
